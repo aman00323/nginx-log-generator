@@ -49,8 +49,21 @@ func main() {
 		statusCode = weightedStatusCode(cfg.StatusOkPercent)
 		bodyBytesSent = realisticBytesSent(statusCode)
 		userAgent = gofakeit.UserAgent()
+		requestTime := gofakeit.Float32Range(-1, 60)
 
-		fmt.Printf("%s - - [%s] \"%s %s %s\" %v %v \"%s\" \"%s\"\n", ip, timeLocal.Format("02/Jan/2006:15:04:05 -0700"), httpMethod, path, httpVersion, statusCode, bodyBytesSent, referrer, userAgent)
+		fmt.Printf("%s - - [%s] \"%s http://%s/%s %s\" %v %v \"%s\" \"%s\" %f \n",
+			ip,
+			timeLocal.Format("02/Jan/2006:15:04:05 -0700"),
+			httpMethod,
+			gofakeit.DomainName(),
+			path,
+			httpVersion,
+			statusCode,
+			bodyBytesSent,
+			referrer,
+			userAgent,
+			requestTime,
+		)
 	}
 }
 
