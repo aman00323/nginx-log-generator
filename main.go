@@ -51,7 +51,7 @@ func main() {
 		userAgent = gofakeit.UserAgent()
 		requestTime := gofakeit.Float32Range(-1, 60)
 
-		fmt.Printf("%s - - [%s] \"%s http://%s/%s %s\" %v %v \"%s\" \"%s\" %f \n",
+		fmt.Printf("%s - - [%s] \"%s http://%s/%s %s\" %v %v \"%s\" \"%s\" %f\n",
 			ip,
 			timeLocal.Format("02/Jan/2006:15:04:05 -0700"),
 			httpMethod,
